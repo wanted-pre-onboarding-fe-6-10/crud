@@ -6,14 +6,8 @@ function Routes() {
   const isToken = localStorage.getItem('accessToken');
   return (
     <ReactRoutes>
-      <Route
-        path="/"
-        element={!isToken ? <Login /> : <Navigate replace to="/todo" />}
-      />
-      <Route
-        path="/todo"
-        element={isToken ? <Todo /> : <Navigate replace to="/" />}
-      />
+      <Route path="/" element={!isToken ? <Login /> : <Navigate replace to="/todo" />} />
+      <Route path="/todo" element={isToken ? <Todo /> : <Navigate replace to="/" />} />
     </ReactRoutes>
   );
 }

@@ -59,11 +59,7 @@ function TodoListItem({ task, onRemove, onTodoChange }) {
             onChange={onComplete}
           />
           {active ? (
-            <Input
-              type="text"
-              value={newTitle}
-              onChange={e => setNewTitle(e.target.value)}
-            />
+            <Input type="text" value={newTitle} onChange={e => setNewTitle(e.target.value)} />
           ) : isCompleted ? (
             <DoneTitle>{todo}</DoneTitle>
           ) : (

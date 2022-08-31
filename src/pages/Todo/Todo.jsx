@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
-import {
-  Title,
-  TitleWrapper,
-  TodoBox,
-  TodoContainer,
-} from '../../styles/authstyle';
+import { Title, TitleWrapper, TodoBox, TodoContainer } from '../../styles/authstyle';
 import CreateTodo from './CreateTodo';
 import TodoList from './TodoList';
 import { createTodo, deleteTodo, getTodo, updateTodo } from './../../api/axios';
@@ -41,21 +36,17 @@ function Todo() {
 
   const onUpdate = (type, taskId, content, completion) => {
     if (type === 'checkbox') {
-      updateTodo({ todo: content, isCompleted: completion, id: taskId }).then(
-        res => {
-          console.log(res);
-          getTodos();
-          Swal.fire('수정완료', '완료처리하였습니다.', 'success');
-        }
-      );
+      updateTodo({ todo: content, isCompleted: completion, id: taskId }).then(res => {
+        console.log(res);
+        getTodos();
+        Swal.fire('수정완료', '완료처리하였습니다.', 'success');
+      });
     } else if (type === 'text') {
-      updateTodo({ todo: content, isCompleted: completion, id: taskId }).then(
-        res => {
-          console.log(res);
-          getTodos();
-          Swal.fire('수정완료', '할 일을 수정했습니다.', 'success');
-        }
-      );
+      updateTodo({ todo: content, isCompleted: completion, id: taskId }).then(res => {
+        console.log(res);
+        getTodos();
+        Swal.fire('수정완료', '할 일을 수정했습니다.', 'success');
+      });
     }
   };
 
@@ -93,11 +84,7 @@ function Todo() {
       </TitleWrapper>
       <TodoBox>
         <CreateTodo todo={todo} onChange={onChange} onCreate={onCreate} />
-        <TodoList
-          todos={todoList}
-          onRemove={onRemove}
-          onTodoChange={onUpdate}
-        />
+        <TodoList todos={todoList} onRemove={onRemove} onTodoChange={onUpdate} />
       </TodoBox>
     </TodoContainer>
   );

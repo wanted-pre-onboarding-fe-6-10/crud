@@ -6,12 +6,7 @@ function TodoList({ todos, onRemove, onTodoChange }) {
     <Wrapper>
       {todos ? (
         todos.map((todo, idx) => (
-          <TodoListItem
-            key={idx}
-            task={todo}
-            onRemove={onRemove}
-            onTodoChange={onTodoChange}
-          />
+          <TodoListItem key={idx} task={todo} onRemove={onRemove} onTodoChange={onTodoChange} />
         ))
       ) : (
         <div>할 일을 등록해주세요</div>

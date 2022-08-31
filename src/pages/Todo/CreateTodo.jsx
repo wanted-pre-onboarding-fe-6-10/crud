@@ -1,9 +1,4 @@
-import {
-  ButtonWrapper,
-  InputWrapper,
-  TodoButton,
-  TodoForm,
-} from '../../styles/authstyle';
+import { ButtonWrapper, InputWrapper, TodoButton, TodoForm } from '../../styles/authstyle';
 import Input from './../../components/Input';
 
 function CreateTodo({ todo, onChange, onCreate }) {
