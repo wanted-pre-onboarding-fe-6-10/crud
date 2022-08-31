@@ -15,6 +15,7 @@ export const AuthContainer = styled.div`
 export const AuthInput = styled.input.attrs(props => ({
   type: props.inputType,
   palceholder: props.palceholder,
+  disabled: props.disabled,
 }))`
   text-align: center;
   width: 70%;
