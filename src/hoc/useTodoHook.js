@@ -9,6 +9,7 @@ export function useTodoHook() {
 
   const onUpdateToggle = () => {
     setUpdateToggle(!updateToggle);
+    setUpdateText('');
   };
 
   const onChange = e => {
@@ -50,6 +51,7 @@ export function useTodoHook() {
         window.location.replace('/todo');
       }
     } else {
+      onUpdateToggle();
       return;
     }
   };
