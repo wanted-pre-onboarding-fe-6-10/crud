@@ -84,6 +84,7 @@ function Todo() {
       </TitleWrapper>
       <TodoBox>
         <CreateTodo todo={todo} onChange={onChange} onCreate={onCreate} />
+        <TodoList todos={todoList} onRemove={onRemove} onTodoChange={onUpdate} />
       </TodoBox>
     </TodoContainer>
   );

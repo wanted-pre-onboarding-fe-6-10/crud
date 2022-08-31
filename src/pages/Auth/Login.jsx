@@ -135,7 +135,9 @@ function Login() {
               )
             ) : (
               <InputWrapper>
-                <InputTitle isValid={!isValidUser}>이메일</InputTitle>
+                <InputTitle isValid={!isValidUser} isWanted={wantSignup}>
+                  이메일
+                </InputTitle>
                 <Input type="text" value={email} onChange={onChangeEmail} />
               </InputWrapper>
             )}
@@ -144,7 +146,7 @@ function Login() {
                 <InputTitle isValid={isValidUser}>비밀번호</InputTitle>
                 <Input type="password" value={password} onChange={onChangePassword} />
                 {isValidUser ? null : (
-                  <AlertBox>
+                  <AlertBox isValid={isValidUser}>
                     {password ? (
                       !isPasswordValid && (
                         <Alert>

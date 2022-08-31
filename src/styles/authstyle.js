@@ -41,7 +41,7 @@ export const InputTitle = styled.div`
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 8px;
-  margin-top: ${props => (props.isValid ? '72px' : '16px')};
+  margin-top: ${props => (props.isWanted ? '32px' : props.isValid ? '72px' : '16px')};
 `;
 
 export const SingupWrapper = styled.div`
@@ -95,7 +95,7 @@ export const SingupBox = styled.div`
   position: relative;
 `;
 export const AlertBox = styled.div`
-  margin-bottom: 32px;
+  margin-bottom: ${props => (props.isValid ? '32px' : '16px')};
   margin-top: 0px;
 `;
 export const Alert = styled.span`
