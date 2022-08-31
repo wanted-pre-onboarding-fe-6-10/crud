@@ -43,6 +43,7 @@ function TodoListItem({ task, onRemove, onTodoChange }) {
   };
   const askEdit = () => {
     setActive(true);
+    setNewTitle(todo);
   };
   const askRemove = id => {
     onRemove(id);

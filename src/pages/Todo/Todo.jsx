@@ -39,7 +39,6 @@ function Todo() {
       updateTodo({ todo: content, isCompleted: completion, id: taskId }).then(res => {
         console.log(res);
         getTodos();
-        Swal.fire('수정완료', '완료처리하였습니다.', 'success');
       });
     } else if (type === 'text') {
       updateTodo({ todo: content, isCompleted: completion, id: taskId }).then(res => {
