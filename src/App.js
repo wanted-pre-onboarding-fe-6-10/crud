@@ -1,19 +1,19 @@
 import React from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import TodoPage from './pages/TodoPage';
-
-let isLogin = localStorage.getItem('token');
+import reset from 'styled-reset';
+import { createGlobalStyle } from 'styled-components';
+import Routes from './Routes';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={isLogin ? <Navigate replace to="/todo" /> : <LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/todo" element={isLogin ? <TodoPage /> : <Navigate replace to="/" />} />
-    </Routes>
+    <>
+      <GlobalStyle />
+      <Routes />
+    </>
   );
 }
 
 export default App;
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+`;
