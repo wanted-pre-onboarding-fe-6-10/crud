@@ -13,6 +13,5 @@ export const GetTokenInStorage = () => {
 };
 
 // export const isLogin = () => {
-//   console.log(123, !!localStorage.getItem(LocalStorageKey));
 //   return !!localStorage.getItem(LocalStorageKey);
 // };

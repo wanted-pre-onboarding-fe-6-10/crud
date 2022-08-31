@@ -13,13 +13,9 @@ function Login() {
   const [emailError, setEmailError] = useState(false);
   const [pswError, setPswError] = useState(false);
   const [btnError, setbtnError] = useState(true);
-  const btnactive =
-    emailError === true || pswError === true || btnError === true;
+  const btnactive = emailError === true || pswError === true || btnError === true;
   const handleEmailChange = e => {
-    if (
-      regEmail.test(emailRef.current.value) !== true &&
-      emailRef.current.value.length >= 1
-    ) {
+    if (regEmail.test(emailRef.current.value) !== true && emailRef.current.value.length >= 1) {
       setEmailError(true);
     } else {
       setEmailError(false);
@@ -31,10 +27,7 @@ function Login() {
     }
   };
   const handlePasswordChange = e => {
-    if (
-      passwordRef.current.value.length < 8 &&
-      passwordRef.current.value.length >= 1
-    ) {
+    if (passwordRef.current.value.length < 8 && passwordRef.current.value.length >= 1) {
       setPswError(true);
     } else {
       setPswError(false);
