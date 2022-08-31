@@ -11,31 +11,29 @@ function RegisterForm() {
   return (
     <RegisterFormBlock>
       <h3>회원가입</h3>
-      <form>
-        <Input
-          type="email"
-          name="email"
-          value={email}
-          placeholder="이메일을 입력해주세요"
-          onKeyUp={onCheckEmail}
-          onChange={onChange}
-        />
-        <InputMarginTop
-          type="password"
-          name="password"
-          value={password}
-          placeholder="비밀번호를 입력해주세요"
-          onChange={onChange}
-        />
-        <ButtonMarginTop
-          fullWidth
-          disabled={error}
-          type="button"
-          onClick={() => onSignUp(email, password)}
-        >
-          회원가입
-        </ButtonMarginTop>
-      </form>
+      <Input
+        type="email"
+        name="email"
+        value={email}
+        placeholder="이메일을 입력해주세요"
+        onKeyUp={onCheckEmail}
+        onChange={onChange}
+      />
+      <InputMarginTop
+        type="password"
+        name="password"
+        value={password}
+        placeholder="비밀번호를 입력해주세요"
+        onChange={onChange}
+      />
+      <ButtonMarginTop
+        fullWidth
+        disabled={error}
+        type="button"
+        onClick={() => onSignUp(email, password)}
+      >
+        회원가입
+      </ButtonMarginTop>
       <Footer>
         <Link to="/">로그인</Link>
       </Footer>
