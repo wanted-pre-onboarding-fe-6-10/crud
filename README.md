@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# 과제 변경점
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. TS -> JS 제작
 
-## Available Scripts
+2. .env 적용
 
-In the project directory, you can run:
+3. 폴더 구조 변경.
 
-### `npm start`
+# 필요하다 생각되는 Best Practice (개인적인 의견입니다.)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+\*\* 8.30일 저녁까지 만들어 주신 과제를 참고했습니다. \*\*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 프로젝트 폴더 구조
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 팀원분들의 과제를 확인해봤습니다.
 
-### `npm run build`
+### 폴더 구조로 나눠놓으신 분도 있고, components만 만드신분도 있고 다양한 방법으로 과제를 만들어주셨습니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 그중 scr폴더를 각자 따로 정리해봤습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 신이재님
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  <img src="https://velog.velcdn.com/images/he-sw/post/7e817542-2f01-45be-86d9-33be0449102c/image.png" width="50%" height="50%"/>
 
-### `npm run eject`
+- 정재욱님
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  <img src="https://velog.velcdn.com/images/he-sw/post/542e931f-c715-4af6-84dd-cde448685007/image.png" width="50%" height="50%"/>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 김은정님, 전지현님
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  <img src="https://velog.velcdn.com/images/he-sw/post/6523fef6-4ee3-418c-9344-1a81b05fe23e/image.png" width="50%" height="50%"/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- 박진성님
 
-## Learn More
+  <img src="https://velog.velcdn.com/images/he-sw/post/4370a6f8-423d-431e-a16f-bf0c2e4544f4/image.png" width="50%" height="50%"/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 윤관님
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  <img src="https://velog.velcdn.com/images/he-sw/post/4aec195f-d2d5-4ef0-a6be-79af4fc337bb/image.png" width="50%" height="50%"/>
 
-### Code Splitting
+- 추승연님
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  <img src="https://velog.velcdn.com/images/he-sw/post/0b8920de-1d0e-4fba-b645-e02eb20e9397/image.png" width="50%" height="50%"/>
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 위에 사진으로 보신것처럼 각자만의 스타일이 있어서 똑같은 방법으로 구현하신분이 거의 없습니다.
 
-### Making a Progressive Web App
+### 다른사람의 코드를 처음 봤을때 서로가 작성한 규칙이 없다면 코드의 의도를 파악하는데 시간을 많이 쏟게 된다고 생각합니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### (물론 작은 프로젝트라서 어려움은 없었습니다..)
 
-### Advanced Configuration
+### 아래는 제가 파악하기 쉬웠던 팀원분들의 폴더를 정리해봤습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+| 신이재님 폴더 | 내부구조                              | 내부 설명                                   |
+| ------------- | ------------------------------------- | ------------------------------------------- |
+| api           | authAPI.js, axios.js, todoAPI.js      | API 정리                                    |
+| commons       | Input, Button, Content, Title, ...    | 재사용가능한 styled-components              |
+| components    | Todo (DeleteButton,NewItemInput ... ) | TodoPage에 사용되는 컴포넌트                |
+|               | Main (LoginForm,SignupForm )          | Main(Login, Signup)Page에 사용되는 컴포넌트 |
+| pages         | MainPage, TodoPage, Index             | 페이지                                      |
+| utils         | checkTokenExists                      | 로컬스토리지 커스텀 utils                   |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| 정재욱님 폴더 | 내부구조                              | 내부 설명                             |
+| ------------- | ------------------------------------- | ------------------------------------- |
+| api           | customAxios.js                        | customAxios 생성                      |
+| components    | Todo (TodoCreate,TodoList ... )       | TodoPage에 사용되는 컴포넌트          |
+|               | auth (LoginForm,RegisterForm )        | authPage에 사용되는 컴포넌트          |
+| hook          | auth, todo                            | auto , todo hook                      |
+| pages         | LoginPage, TodoPage, Modify, Register | 페이지 (수정페이지를 따로 만드셨네요) |
+| store         | authSlice, todoSlice , store          | Redux/toolkit 상태관리 store          |
 
-### `npm run build` fails to minify
+| 전지현님, 김은정님 폴더 | 내부구조              | 내부 설명                         |
+| ----------------------- | --------------------- | --------------------------------- |
+| style                   | GlovalStyle, vairable | 글로벌, 자주사용되는 CSS vairable |
+| components              | authFormStyle.js      | TodoPage에 사용되는 컴포넌트      |
+| pages                   | todo, signin, signup  | 페이지                            |
+| store                   | todoData              | Mobx 상태관리                     |
+| config                  | APP_API               | api url 분리                      |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 위에 보이시는 것처럼 폴더 이름만 보고 내부 내용들이
+
+## 어떤것이 있는지 대강 예상이 되면 코드 리뷰할때 더 편리할 것 같습니다.
+
+- https://www.youtube.com/watch?v=XEO3mFvrDx0&t=956s 참고하면 좋을 영상 추천드립니다.
+
+---
+
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)

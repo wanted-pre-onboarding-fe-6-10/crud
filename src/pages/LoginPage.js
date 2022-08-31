@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import * as LoginForm from '../components/LoginForm';
+import * as LoginForm from '../components/Login/LoginForm';
 import { useNavigate } from 'react-router-dom';
 import * as vaildation from '../utils/Validation';
-import { UserSignIn } from '../services/userApi';
+import { UserSignIn } from '../api/userApi';
 import { SetTokenInStorage, GetTokenInStorage } from '../utils/Localstorage';
 
 const Container = styled.div`

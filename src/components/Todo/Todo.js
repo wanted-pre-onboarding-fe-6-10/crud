@@ -1,22 +1,25 @@
-import { todoAPI } from '../../services/todoApi';
+import { todoAPI } from '../../api/todoApi';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { TodoInput, TodoButton, TodoContainer, TodoSpan } from './TodoForm';
 
 const todoApi = new todoAPI();
 
+// Delete Api 호출 후 변경된 Data 다시 반영
 const deleteHandler = async (id, Getdata) => {
   await todoApi.deleteTodo(id);
   Getdata();
-}; // Delete Api 호출 후 변경된 Data 다시 반영
+};
 
+// Update Api에 isCompleted값만 반영
 const checkboxHandler = async (id, todo, isCompleted, setIsCheck) => {
   if (setIsCheck) {
     setIsCheck(prev => !prev);
   }
   await todoApi.updateTodo(id, todo, isCompleted);
-}; // Update Api에 isCompleted값만 반영
+};
 
+// Update Api에 변경된 todo값 isCompleted=false 반영
 const updateIuputHandler = async (
   id,
   todo,
@@ -29,9 +32,10 @@ const updateIuputHandler = async (
   }
   await todoApi.updateTodo(id, todo, isCompleted);
   Getdata();
-}; // Update Api에 변경된 todo값 isCompleted=false 반영
+};
 
 export default function Todo(props) {
+  // props에 무엇이 들어올지 본인밖에 모름. 3자가 코드리뷰할때 시간이 더 많이 들어감
   const [isCheck, setIsCheck] = useState(props.todo.isCompleted);
   const [updateClick, SetUpdateClick] = useState(true); // 수정버튼 클릭시 변경
   const updateInput = useRef(null); // 수정버튼 클릭시 나오는 Input Ref

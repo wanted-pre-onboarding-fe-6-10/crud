@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GetTokenInStorage } from '../utils/Localstorage';
-import { todoAPI } from '../services/todoApi';
-import { TypeTodo } from '../services/todoApi';
+import { todoAPI } from '../api/todoApi';
 import TodoList from '../components/Todo/TodoList';
 import { Container, Input, Title, Button } from '../components/Todo/TodoForm';
 

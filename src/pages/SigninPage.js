@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import React, { useState, useRef } from 'react';
-import * as LoginForm from '../components/LoginForm';
+import * as LoginForm from '../components/Login/LoginForm';
 import { useNavigate } from 'react-router-dom';
 import * as vaildation from '../utils/Validation';
-import { UserSignUp } from '../services/userApi';
+import { UserSignUp } from '../api/userApi';
 
 const Container = styled.div`
   background-color: #fff;
