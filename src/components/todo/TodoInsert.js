@@ -23,7 +23,7 @@ function TodoInsert() {
 
 export default TodoInsert;
 
-const TodoInsertForm = styled.form`
+const TodoInsertForm = styled.div`
   display: flex;
 `;
 const InsertStyle = styled(Input)`
