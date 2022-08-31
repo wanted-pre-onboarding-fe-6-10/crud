@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { signIn, signUp } from '../api/authAPI';
 export function useAuthHook() {
   const [inputs, setInputs] = useState({
@@ -8,7 +7,6 @@ export function useAuthHook() {
   });
   const [emailError, setEmailError] = useState(false);
   const [error, setError] = useState(false);
-  const navigate = useNavigate();
 
   const { email, password } = inputs;
 
@@ -44,7 +42,7 @@ export function useAuthHook() {
     localStorage.setItem('token', response.data.access_token);
 
     if (response.status === 200) {
-      navigate('/todo');
+      window.location.replace('/todo');
     }
   };
 
@@ -53,9 +51,17 @@ export function useAuthHook() {
     localStorage.setItem('token', response.data.access_token);
 
     if (response.status === 201) {
-      navigate('/todo');
+      window.location.replace('/todo');
     }
   };
 
-  return { email, password, onChange, onCheckEmail, error, onSignin, onSignUp };
+  return {
+    email,
+    password,
+    onChange,
+    onCheckEmail,
+    error,
+    onSignin,
+    onSignUp,
+  };
 }
