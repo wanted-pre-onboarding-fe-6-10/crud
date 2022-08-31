@@ -32,15 +32,8 @@ function TodoItem({ todo }) {
         </>
       ) : (
         <>
-          <UpdateInput
-            type="text"
-            value={updateText}
-            onChange={onChangeUpdate}
-          />
-          <Button
-            inItemStyle
-            onClick={() => onUpdateTodo(updateText, todo.isCompleted, todo.id)}
-          >
+          <UpdateInput type="text" value={updateText} onChange={onChangeUpdate} />
+          <Button inItemStyle onClick={() => onUpdateTodo(updateText, todo.isCompleted, todo.id)}>
             수정
           </Button>
         </>

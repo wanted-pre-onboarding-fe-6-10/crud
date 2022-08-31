@@ -6,8 +6,8 @@ import { useAuthHook } from '../../hoc/useAuthHook';
 import { Link } from 'react-router-dom';
 
 function LoginForm() {
-  const { email, password, onChange, onCheckEmail, error, onSignin } =
-    useAuthHook();
+  const { email, password, onChange, onCheckEmail, error, onSignin } = useAuthHook();
+
   return (
     <LoginFormBlock>
       <h3>로그인</h3>

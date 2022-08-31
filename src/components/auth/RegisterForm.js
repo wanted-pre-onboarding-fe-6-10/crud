@@ -6,8 +6,7 @@ import { useAuthHook } from '../../hoc/useAuthHook';
 import { Link } from 'react-router-dom';
 
 function RegisterForm() {
-  const { email, password, onChange, onCheckEmail, error, onSignUp } =
-    useAuthHook();
+  const { email, password, onChange, onCheckEmail, error, onSignUp } = useAuthHook();
   return (
     <RegisterFormBlock>
       <h3>회원가입</h3>

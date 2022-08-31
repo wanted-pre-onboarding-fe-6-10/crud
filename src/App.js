@@ -9,15 +9,9 @@ let isLogin = localStorage.getItem('token');
 function App() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={isLogin ? <Navigate replace to="/todo" /> : <LoginPage />}
-      />
+      <Route path="/" element={isLogin ? <Navigate replace to="/todo" /> : <LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route
-        path="/todo"
-        element={isLogin ? <TodoPage /> : <Navigate replace to="/" />}
-      />
+      <Route path="/todo" element={isLogin ? <TodoPage /> : <Navigate replace to="/" />} />
     </Routes>
   );
 }
