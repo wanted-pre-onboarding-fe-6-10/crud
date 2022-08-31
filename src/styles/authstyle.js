@@ -121,3 +121,28 @@ export const LogoImg = styled.img.attrs({
   width: 130px;
   height: auto;
 `;
+
+export const TodoContainer = styled(Container)`
+  flex-direction: column;
+`;
+
+export const TodoBox = styled(LoginBox)`
+  width: 500px;
+  height: 600px;
+`;
+
+export const TodoForm = styled(Form)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const TodoButton = styled(Button)`
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  font-size: 50px;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+`;
