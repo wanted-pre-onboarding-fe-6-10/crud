@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { signIn } from '../../api/authAPI';
-import AuthForm from '../../components/authFormStyle';
+import AuthForm from '../../components/AuthForm';
 import { ACCESS_TOKEN } from '../../const';
 
 const SignIn = () => {

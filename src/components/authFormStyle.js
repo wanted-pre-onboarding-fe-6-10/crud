@@ -1,60 +1,51 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import * as S from './FormStyles';
+import styled from 'styled-components';
+import { flex } from '../styles/variables';
 
-const AuthForm = ({ title, submitRequest, btnText = 'in' }) => {
-  const [userValue, setUserValue] = useState({ email: '', password: '' });
+export const Form = styled.form`
+  ${flex({ direction: 'column' })}
+  width: 300px;
+  height: 300px;
+`;
 
-  const isValid =
-    userValue.email.includes('@') && userValue.password.length >= 8;
+export const LabelWrapper = styled.div`
+  width: 100%;
+  padding: 20px 0;
+  ${flex({ direction: 'column' })}
+`;
 
-  const onSubmit = e => {
-    e.preventDefault();
-    submitRequest(userValue);
-  };
+export const Label = styled.label`
+  width: 300px;
+  margin-bottom: 20px;
+  ${flex({ direction: 'row' })}
 
-  return (
-    <>
-      <h1>{title}</h1>
-      <S.Form onSubmit={onSubmit}>
-        <S.LabelWrapper>
-          <S.Label>
-            <span>email</span>
-            <input
-              type="email"
-              placeholder="@포함"
-              value={userValue.eamil}
-              required
-              onChange={e =>
-                setUserValue(prev => ({ ...prev, email: e.target.value }))
-              }
-            />
-          </S.Label>
+  span {
+    display: inline-block;
+    width: 80px;
+  }
+`;
 
-          <S.Label>
-            <span>password</span>
-            <input
-              type="password"
-              placeholder="8자리 이상"
-              required
-              minLength={8}
-              value={userValue.eamil}
-              onChange={e =>
-                setUserValue(prev => ({ ...prev, password: e.target.value }))
-              }
-            />
-          </S.Label>
-        </S.LabelWrapper>
+export const InputBox = styled.input.attrs(props => ({
+  type: props.inputType,
+  name: props.name,
+  required: true,
+  minLength: props.length,
+  placeholder: props.placeholder,
+}))`
+  border: 1px solid gray;
+`;
 
-        <S.SubmitBtn disabled={!isValid}>sign {btnText}</S.SubmitBtn>
+export const SubmitBtn = styled.button.attrs({
+  type: 'submit',
+})`
+  margin: 5px 0;
+  border-radius: 120px;
+  width: 200px;
+  background-color: orange;
+  cursor: ${props => props.disabled && 'not-allowed'};
+`;
 
-        <Link to={`${btnText === 'in' ? '/signup' : '/'}`}>
-          go to sign {btnText === 'in' ? 'up' : 'in'}
-          <S.GotoBtn>sign {btnText === 'in' ? 'up' : 'in'}</S.GotoBtn>
-        </Link>
-      </S.Form>
-    </>
-  );
-};
-
-export default AuthForm;
+export const GotoBtn = styled(SubmitBtn).attrs({ type: 'button' })`
+  width: 80px;
+  margin-left: 20px;
+  background-color: lightgray;
+`;

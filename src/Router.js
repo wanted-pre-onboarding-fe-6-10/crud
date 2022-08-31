@@ -8,15 +8,6 @@ import Signup from './pages/signup/Signup';
 import Todo from './pages/todo/Todo';
 import Auth from './components/Auth';
 
-// 리팩토링
-const Container = styled.div`
-  height: 100vh;
-  width: 100%;
-  background-color: #dbcaca;
-  color: black;
-  ${flex({ direction: 'column' })}
-`;
-
 function Router() {
   return (
     <>
@@ -40,5 +31,13 @@ function Router() {
     </>
   );
 }
+
+const Container = styled.div`
+  height: 100vh;
+  width: 100%;
+  background-color: #dbcaca;
+  color: black;
+  ${flex({ direction: 'column' })}
+`;
 
 export default Router;

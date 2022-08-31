@@ -1,5 +1,5 @@
 import { signUp } from '../../api/authAPI';
-import AuthForm from '../../components/authFormStyle';
+import AuthForm from '../../components/AuthForm';
 
 const Signup = () => {
   const SignupRequest = async signupValue => {
