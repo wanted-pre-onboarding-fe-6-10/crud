@@ -146,3 +146,38 @@ export const TodoButton = styled(Button)`
   padding: 0;
   cursor: pointer;
 `;
+export const TodoListWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const TodoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const CheckBox = styled(Checkbox)``;
+
+export const TodoTitle = styled.div`
+  font-size: 18px;
+`;
+export const DoneTitle = styled(TodoTitle)`
+  text-decoration: line-through;
+  color: #c7c7c7;
+`;
+export const EditButton = styled.button`
+  border: 0;
+  border-radius: 10px;
+  width: 35px;
+  height: 35px;
+  background-color: #4d7fff;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 4px;
+  cursor: pointer;
+`;
+export const RemoveButton = styled(EditButton)`
+  background-color: #d33;
+`;
