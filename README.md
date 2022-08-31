@@ -4,26 +4,7 @@
 ### 프로젝트 개요
 - 프리온보딩 사전 과제를 새롭게 처음부터 구현해보면서 사전 과제를 진행할 때 부족했던 부분을 보완하고 모듈화와 최적화를 진행한 프로젝트입니다. 또한, 로그인과 회원가입 기능을 하나로 통합하여 훨씬 높은 UX를 제공할 수 있게 기능 구현을 하였습니다.(Wanted 로그인 시스템 참고)
 ### 컴포넌트 설계
-src
-├─api  // api요청 관련 모든 함수 정리
-│  └─axios.jsx // 규모가 작은 프로젝트라 하나의 파일로 정리. 규모가 커질 경우 기능별 파일로 분할 진행
-├─components // 공통으로 사용되는 component. 작은 규모의 프로젝트라 Pages에 들어가는 Component들을 세분화 진행하지 않음
-│  ├─Button.jsx
-│  └─Input.jsx
-├─pages // 기능별 페이지
-│  ├─Auth 
-│  │  └─Auth.jsx // 로그인과 회원가입 코드
-│  └─Todo 
-│     ├─CreateTodo.jsx // Todolist 생성 코드
-│     ├─Todo.jsx // Todolist 관련 api 요청 및 state 관리 코드
-│     ├─TodoList.jsx // Todolist 코드
-│     └─TodoListItem.jsx // Todolist 수정/삭제/완료 코드
-├─styles
-│  ├─GlobalStyle.jsx // 전체 프로젝트 스타일 적용 코드
-│  └─authstyle.js // 파일별로 사용하는 스타일 코드 모음
-├─App.jsx
-├─index.jsx
-└─Routes.jsx // Routing을 위한 코드
+![image](https://user-images.githubusercontent.com/79856086/187749546-ea7f4994-2cfd-4106-b39a-764db7cbce51.png)
 
 ## Skill
 - React
