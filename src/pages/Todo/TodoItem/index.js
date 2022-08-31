@@ -3,18 +3,7 @@ import { Checkbox, IconButton, ListItemText } from '@material-ui/core';
 import { Grid, Paper } from '@material-ui/core';
 import { Clear, Create } from '@material-ui/icons';
 import swal from 'sweetalert';
-
-const styles = {
-  Icon: {
-    marginLeft: 'auto',
-  },
-  Paper: {
-    padding: 10,
-    display: 'flex',
-    alignItems: 'center',
-    margin: 10,
-  },
-};
+import S from './style';
 
 async function deleteTodo(id) {
   const token = localStorage.getItem('access_token');
@@ -117,8 +106,8 @@ function Todo(prop) {
 
   return (
     <Grid key={todo.id} xs={12} item>
-      <Paper elevation={2} style={styles.Paper}>
-        <span style={styles.Todo}>{todo.id}</span>
+      <S.Paper>
+        <span>{todo.id}</span>
         <IconButton onClick={handleCheck}>
           <Checkbox tabIndex={-1} disableRipple checked={todo.isCompleted} />
         </IconButton>
@@ -137,7 +126,7 @@ function Todo(prop) {
         >
           <Clear fontSize="small" />
         </IconButton>
-      </Paper>
+      </S.Paper>
     </Grid>
   );
 }

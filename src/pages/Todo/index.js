@@ -8,16 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import TodoItem from './TodoItem';
 import swal from 'sweetalert';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
-
+import S from './style';
 async function setTodos(todo) {
   const token = localStorage.getItem('access_token');
   return fetch(
@@ -66,7 +57,6 @@ async function getTodos() {
 }
 
 export default function Profile() {
-  const classes = useStyles();
   const [todo, setTodo] = useState('');
   const [todoList, setTodoList] = useState([]);
 
@@ -96,12 +86,10 @@ export default function Profile() {
   };
 
   return (
-    <div className={classes.root}>
+    <div>
       <AppBar position="sticky">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Todo
-          </Typography>
+          <S.TITLE>Todo</S.TITLE>
           <div>
             <Button onClick={handleLogout}>Logout</Button>
           </div>
