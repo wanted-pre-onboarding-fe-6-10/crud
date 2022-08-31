@@ -1,5 +1,5 @@
 import Routes from './Routes';
-import ResetStyle from './styles/ResetStyle';
+import { ResetStyle } from './styles/ResetStyle';
 
 function App() {
   return (
