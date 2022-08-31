@@ -1,13 +1,11 @@
-import { todoAPI } from '../../api/todoApi';
+import { deleteTodo, updateTodo } from '../../api/userApi';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { TodoInput, TodoButton, TodoContainer, TodoSpan } from './TodoForm';
 
-const todoApi = new todoAPI();
-
 // Delete Api 호출 후 변경된 Data 다시 반영
 const deleteHandler = async (id, Getdata) => {
-  await todoApi.deleteTodo(id);
+  await deleteTodo(id);
   Getdata();
 };
 
@@ -16,21 +14,15 @@ const checkboxHandler = async (id, todo, isCompleted, setIsCheck) => {
   if (setIsCheck) {
     setIsCheck(prev => !prev);
   }
-  await todoApi.updateTodo(id, todo, isCompleted);
+  await updateTodo(id, todo, isCompleted);
 };
 
 // Update Api에 변경된 todo값 isCompleted=false 반영
-const updateIuputHandler = async (
-  id,
-  todo,
-  isCompleted,
-  SetUpdateClick,
-  Getdata
-) => {
+const updateIuputHandler = async (id, todo, isCompleted, SetUpdateClick, Getdata) => {
   if (SetUpdateClick) {
     SetUpdateClick(prev => !prev);
   }
-  await todoApi.updateTodo(id, todo, isCompleted);
+  await updateTodo(id, todo, isCompleted);
   Getdata();
 };
 
@@ -90,10 +82,7 @@ export default function Todo(props) {
             >
               수정완료
             </TodoButton>
-            <TodoButton
-              ButtonType="취소"
-              onClick={e => SetUpdateClick(prev => !prev)}
-            >
+            <TodoButton ButtonType="취소" onClick={e => SetUpdateClick(prev => !prev)}>
               취소
             </TodoButton>
           </div>

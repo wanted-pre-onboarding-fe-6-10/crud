@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GetTokenInStorage } from '../utils/Localstorage';
-import { todoAPI } from '../api/todoApi';
+import { createTodo, getTodos } from '../api/todoApi';
 import TodoList from '../components/Todo/TodoList';
 import { Container, Input, Title, Button } from '../components/Todo/TodoForm';
 
@@ -15,7 +15,7 @@ export default function Todo() {
     const todo = inputRef.current?.value.toString();
     if (todo) {
       const newTodo = { todo: todo };
-      const res = await todoApi.createTodo(newTodo);
+      const res = await createTodo(newTodo);
       inputRef.current.value = '';
       if (res) {
         Getdata();
@@ -24,7 +24,7 @@ export default function Todo() {
   };
 
   async function Getdata() {
-    const data = await todoApi.getTodos();
+    const data = await getTodos();
     setTodos(() => data);
   }
 
