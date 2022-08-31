@@ -53,7 +53,7 @@ function TodoListItem({ task, onRemove, onTodoChange }) {
       <TodoListWrapper>
         <TodoWrapper>
           <CheckBox
-            checked={completion}
+            checked={isCompleted}
             // checked={completion}
             // sx={{ width: "30px", height: "30px" }}
             onChange={onComplete}
