@@ -5,10 +5,13 @@ import GlobalStyle from './style/GlobalStyle';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
-      <AuthForm />
-    </>
+      <Routes>
+        <Route path="/" element={<AuthForm />} />
+        <Route path="/todo" element={<AuthForm />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
