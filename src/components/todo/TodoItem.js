@@ -1,16 +1,50 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { MdDone } from 'react-icons/md';
 import Button from '../common/Button';
+import { useTodoHook } from '../../hoc/useTodoHook';
+import Input from '../common/Input';
 
-function TodoItem() {
+function TodoItem({ todo }) {
+  const {
+    onDeleteTodo,
+    onUpdateToggle,
+    updateToggle,
+    updateText,
+    onChangeUpdate,
+    onUpdateTodo,
+    onCheckTodo,
+  } = useTodoHook();
   return (
     <TodoItemBlock>
-      <CheckCircle />
-      <MdDone />
-      <Text>111</Text>
-      <ButtonMarginRight inItemStyle>수정</ButtonMarginRight>
-      <Button inItemStyle>삭제</Button>
+      <CheckCircle
+        done={todo.isCompleted}
+        onClick={() => onCheckTodo(todo.todo, todo.isCompleted, todo.id)}
+      />
+      {!updateToggle ? (
+        <>
+          <Text>{todo.todo}</Text>
+          <ButtonMarginRight inItemStyle onClick={onUpdateToggle}>
+            수정
+          </ButtonMarginRight>
+          <Button inItemStyle onClick={() => onDeleteTodo(todo.id)}>
+            삭제
+          </Button>
+        </>
+      ) : (
+        <>
+          <UpdateInput
+            type="text"
+            value={updateText}
+            onChange={onChangeUpdate}
+          />
+          <Button
+            inItemStyle
+            onClick={() => onUpdateTodo(updateText, todo.isCompleted, todo.id)}
+          >
+            수정
+          </Button>
+        </>
+      )}
     </TodoItemBlock>
   );
 }
@@ -54,5 +88,10 @@ const Text = styled.div`
 `;
 
 const ButtonMarginRight = styled(Button)`
+  margin-right: 1rem;
+`;
+
+const UpdateInput = styled(Input)`
+  width: 70%;
   margin-right: 1rem;
 `;
