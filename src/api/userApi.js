@@ -1,16 +1,29 @@
-import axios from 'axios';
-const BASE_URL = process.env.REACT_APP_API_URL;
+import { instance } from './customAxios';
 
-const UserApi = axios.create({
-  baseURL: BASE_URL,
-});
+const COMMON = process.env.REACT_APP_BASE_URL + 'auth';
 
-export const UserSignUp = async ({ email, password }) => {
-  const { data } = await UserApi.post('/auth/signup', { email, password });
-  return data;
+//회원가입
+export const signUp = async (email, password) => {
+  try {
+    const response = await instance.post(COMMON + '/signup', {
+      email,
+      password,
+    });
+    return response;
+  } catch (e) {
+    throw e;
+  }
 };
 
-export const UserSignIn = async ({ email, password }) => {
-  const { data } = await UserApi.post('/auth/signin', { email, password });
-  return data;
+//로그인
+export const signIn = async (email, password) => {
+  try {
+    const response = await instance.post(COMMON + '/signin', {
+      email,
+      password,
+    });
+    return response;
+  } catch (e) {
+    throw e;
+  }
 };
