@@ -1,5 +1,13 @@
+import Routes from './Routes';
+import ResetStyle from './styles/ResetStyle';
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <ResetStyle />
+      <Routes />
+    </>
+  );
 }
 
 export default App;
