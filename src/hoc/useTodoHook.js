@@ -22,7 +22,9 @@ export function useTodoHook() {
     setUpdateText(value);
   };
 
-  const onCreateTodo = async inputTodo => {
+  const onCreateTodo = async (e, inputTodo) => {
+    e.preventDefault();
+
     const response = await createTodo(inputTodo);
     if (response.status === 201) {
       setInputTodo('');

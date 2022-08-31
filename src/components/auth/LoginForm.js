@@ -11,29 +11,26 @@ function LoginForm() {
   return (
     <LoginFormBlock>
       <h3>로그인</h3>
-      <Input
-        type="email"
-        name="email"
-        value={email}
-        placeholder="이메일을 입력해주세요"
-        onKeyUp={onCheckEmail}
-        onChange={onChange}
-      />
-      <InputMarginTop
-        type="password"
-        name="password"
-        value={password}
-        placeholder="비밀번호를 입력해주세요"
-        onChange={onChange}
-      />
-      <ButtonMarginTop
-        fullWidth
-        disabled={error}
-        type="button"
-        onClick={() => onSignin(email, password)}
-      >
-        로그인
-      </ButtonMarginTop>
+      <form onSubmit={e => onSignin(e, email, password)}>
+        <Input
+          type="email"
+          name="email"
+          value={email}
+          placeholder="이메일을 입력해주세요"
+          onKeyUp={onCheckEmail}
+          onChange={onChange}
+        />
+        <InputMarginTop
+          type="password"
+          name="password"
+          value={password}
+          placeholder="비밀번호를 입력해주세요"
+          onChange={onChange}
+        />
+        <ButtonMarginTop fullWidth disabled={error}>
+          로그인
+        </ButtonMarginTop>
+      </form>
       <Footer>
         <Link to="/register">회원가입</Link>
       </Footer>

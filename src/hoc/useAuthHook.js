@@ -37,16 +37,19 @@ export function useAuthHook() {
     });
   };
 
-  const onSignin = async (email, password) => {
+  const onSignin = async (e, email, password) => {
+    e.preventDefault();
+
     const response = await signIn(email, password);
     localStorage.setItem('token', response.data.access_token);
-
     if (response.status === 200) {
       window.location.replace('/todo');
     }
   };
 
-  const onSignUp = async (email, password) => {
+  const onSignUp = async (e, email, password) => {
+    e.preventDefault();
+
     const response = await signUp(email, password);
     localStorage.setItem('token', response.data.access_token);
 

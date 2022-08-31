@@ -7,23 +7,21 @@ import Input from '../common/Input';
 function TodoInsert() {
   const { inputTodo, onChange, onCreateTodo } = useTodoHook();
   return (
-    <TodoInsertForm>
+    <TodoInsertForm onSubmit={e => onCreateTodo(e, inputTodo)}>
       <InsertStyle
         type="text"
         value={inputTodo}
         placeholder="할 일을 입력해주세요"
         onChange={onChange}
       />
-      <Button type="button" onClick={() => onCreateTodo(inputTodo)}>
-        +
-      </Button>
+      <Button>+</Button>
     </TodoInsertForm>
   );
 }
 
 export default TodoInsert;
 
-const TodoInsertForm = styled.div`
+const TodoInsertForm = styled.form`
   display: flex;
 `;
 const InsertStyle = styled(Input)`
