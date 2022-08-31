@@ -1,18 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  background-color: #fff;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 20px;
-  box-sizing: border-box;
-  width: 645px;
-  height: 698px;
-`;
-
 export const MainTitle = styled.div`
   text-align: center;
 `;
@@ -130,4 +117,25 @@ export const Atag = styled.a`
     color: #2e5cff;
     text-decoration-line: none;
   }
+`;
+
+export const Container = styled.div`
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 39px 62px 30px 60px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.12);
+  border-radius: 7px;
+  min-width: 500px;
+`;
+export const Atagbox = styled.div`
+  margin-top: 24px;
+  margin-bottom: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;

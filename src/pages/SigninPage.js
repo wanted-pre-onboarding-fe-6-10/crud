@@ -5,35 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import * as vaildation from '../utils/Validation';
 import { UserSignUp } from '../api/userApi';
 
-const Container = styled.div`
-  background-color: #fff;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 39px 62px 30px 60px;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.12);
-  border-radius: 7px;
-  min-width: 500px;
-`;
-const Atagbox = styled.div`
-  margin-top: 24px;
-  margin-bottom: 8px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-
 function Signin() {
   const nav = useNavigate();
   const regEmail = vaildation.regEmail;
-  const emailRef = useRef < HTMLInputElement > null;
-  const passwordRef = useRef < HTMLInputElement > null;
-  const [emailError, setEmailError] = useState < boolean > false;
-  const [pswError, setPswError] = useState < boolean > false;
-  const [btnError, setbtnError] = useState < boolean > true;
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const [emailError, setEmailError] = useState(false);
+  const [pswError, setPswError] = useState(false);
+  const [btnError, setbtnError] = useState(true);
   const btnactive =
     emailError === true || pswError === true || btnError === true;
   const handleEmailChange = e => {
@@ -86,7 +65,7 @@ function Signin() {
   };
 
   return (
-    <Container>
+    <LoginForm.Container>
       <LoginForm.Title>회원가입</LoginForm.Title>
       <LoginForm.InputDiv>
         <LoginForm.InputTitle error={false}>이메일</LoginForm.InputTitle>
@@ -114,16 +93,16 @@ function Signin() {
         placeholder="비밀번호는 8자리 이상이여야합니다."
         error={pswError}
       />
-      <Atagbox>
+      <LoginForm.Atagbox>
         <LoginForm.Graytext>
           이미 가입하셨나요?
           <LoginForm.Atag onClick={toLogin}>로그인하기</LoginForm.Atag>
         </LoginForm.Graytext>
-      </Atagbox>
+      </LoginForm.Atagbox>
       <LoginForm.Button onClick={handleClick} disabled={btnactive}>
         회원가입하기
       </LoginForm.Button>
-    </Container>
+    </LoginForm.Container>
   );
 }
 

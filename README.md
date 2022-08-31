@@ -1,10 +1,21 @@
-# 과제 변경점
+# 과제 리펙토링
 
-1. TS -> JS 제작
+1. TS -> JS 변경
 
-2. .env 적용
+2. .env 환경변수 설정 파일 적용 API_URL (AWS 주소 비공개)
 
-3. 폴더 구조 변경.
+3. 폴더 구조 변경 (api , components, pages, utils) 및 파일 정리
+
+4. 윤관님 Router 참고하여 useEffect 가 아닌 routing에서 token 값 참고하여 변경 하고싶었으나 아직 구현 X..
+
+5. 맥락을 이해하기 힘든 변수명 변경
+
+- 타입별 변수명
+  - boolean : `is-`, `has-`, `can-`, ...
+  - function : `get-`, `handle-`, `submit-`, …
+  - array : `-s` (ex. `users.map(user ⇒ user.id)`), …
+- 피해야 할 변수명
+  - `data`, `info`, `foo`, `user1`, `mdhms`, …
 
 # 필요하다 생각되는 Best Practice (개인적인 의견입니다.)
 
@@ -86,9 +97,10 @@
 
 ## 위에 보이시는 것처럼 폴더 이름만 보고 내부 내용들이
 
-## 어떤것이 있는지 대강 예상이 되면 코드 리뷰할때 더 편리할 것 같습니다.
+## 어떤것이 있는지 대강 예상이 되서 코드 리뷰할때 더 편리합니다..
 
 - https://www.youtube.com/watch?v=XEO3mFvrDx0&t=956s 참고하면 좋을 영상 추천드립니다.
+- https://velog.io/@raverana96/react-리액트-프로젝트의-폴더구조
 
 ---
 

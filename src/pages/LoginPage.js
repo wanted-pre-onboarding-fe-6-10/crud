@@ -1,31 +1,9 @@
-import styled from 'styled-components';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import * as LoginForm from '../components/Login/LoginForm';
 import { useNavigate } from 'react-router-dom';
 import * as vaildation from '../utils/Validation';
 import { UserSignIn } from '../api/userApi';
 import { SetTokenInStorage, GetTokenInStorage } from '../utils/Localstorage';
-
-const Container = styled.div`
-  background-color: #fff;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 39px 62px 30px 60px;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.12);
-  border-radius: 7px;
-  min-width: 500px;
-`;
-const Atagbox = styled.div`
-  margin-top: 24px;
-  margin-bottom: 8px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
 
 function Login() {
   const nav = useNavigate();
@@ -96,7 +74,7 @@ function Login() {
     ToTodoPage();
   }, [ToTodoPage]);
   return (
-    <Container>
+    <LoginForm.Container>
       <LoginForm.Title>로그인</LoginForm.Title>
       <LoginForm.InputDiv>
         <LoginForm.InputTitle error={false}>이메일</LoginForm.InputTitle>
@@ -124,16 +102,16 @@ function Login() {
         placeholder="비밀번호는 8자리 이상이여야합니다."
         error={pswError}
       />
-      <Atagbox>
+      <LoginForm.Atagbox>
         <LoginForm.Graytext>
           처음이신가요?
           <LoginForm.Atag onClick={toSigninPage}>가입하기</LoginForm.Atag>
         </LoginForm.Graytext>
-      </Atagbox>
+      </LoginForm.Atagbox>
       <LoginForm.Button onClick={handleClick} disabled={btnactive}>
         로그인하기
       </LoginForm.Button>
-    </Container>
+    </LoginForm.Container>
   );
 }
 
