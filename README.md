@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+# Wanted Pre-Onboarding 6차 10팀 과제1: 사전과제 Best Practice
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> ### 구현 명세
 
-## Available Scripts
+> <https://github.com/walking-sunset/selection-task>
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+## 10팀의 프로젝트 리팩토링 방향
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> 각자 best 방법으로 코드 구현한 뒤, 본인의 코드 설명 후 Best Practice를 채택하기로 했습니다
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+>
 
-### `npm test`
+- 각자 orginization 에서 브랜치 판 뒤 Fork
+- Eslint, Prettier, Husky 적용
+- JavaScript 사용
+- styled-component로 스타일링
+- 리액트 폴더 구조에 대한 설명 준비
+- reset CSS (선택사항)
+- 모듈화 (OT 내용 참고)
+- 상태관리 라이브러리 → 명세에 나와있는 라이브러리 이외에는 사용하지 말 것
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
+## 논의되었던 내용
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. react router dom, styled-components 설치
+2. .env로 환경변수 관리
+3. styled-reset 사용 관련
+4. axios VS fetch 선택
+5. chmod ug+x .husky/\* 이슈 → 스크립트에 포함?
+   <br>[참고링크](https://stackoverflow.com/questions/68367259/husky-needs-to-make-executable-for-every-new-branch)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. .eslintcache .gitignore 파일에 추가
+7. eslint-config-prettier, eslint-plugin-prettier 디펜던시 사용 관련
+8. 폴더 구조 통일 할지?
+9. "endOfLine": "auto" .prettierrc 에 추가
+10. 필요없는 라이브러리들 제거
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `npm run eject`
+## ✍️ 작업 log
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> UI 보다는 내부적인 코드 구현 리팩토링에 집중해 보았습니다!
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### 스타일링 관련
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- styled-reset 을 이용해서 CSS reset을 진행했어요
+- GlobalStyle 컴포넌트를 두어 global한 스타일을 정의해두었어요
+- styled-component로 스타일링을 하고 있어요
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br>
 
-## Learn More
+#### Dependency 관련
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- eslint-config-prettier, eslint-plugin-prettier를 함께 사용하는 것으로 변경했어요
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+###### &nbsp; &nbsp; &nbsp; &nbsp;(참고링크: <https://stackoverflow.com/questions/44690308/whats-the-difference-between-prettier-eslint-eslint-plugin-prettier-and-eslint/44690309#44690309>)
 
-### Code Splitting
+- 필요없는 라이브러리들을 제거했어요
+- .eslintrc, .prettierrc를 정의해서 코드를 관리했어요
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br>
 
-### Analyzing the Bundle Size
+#### 프로젝트 파일 구조 관련
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+&nbsp; 컴포넌트 관련
 
-### Making a Progressive Web App
+> 📁 pages: 앱의 각 화면<br>
+> 📁 components: 각 화면의 상위 컴포넌트들<br>
+> 📁 commons: 화면들 간에 재사용될 가능성이 있는 하위 컴포넌트들<br>
+> 📁 hoc: 각 컴포넌트에서 사용되야 할 state, api 호출 함수를 모아둔 커스텀 훅<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+&nbsp; 기타 관련
 
-### Advanced Configuration
+> 📁 api: API axios instance와 api 호출 메서드 정의<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+src
+ ┣ api
+ ┃ ┣ authAPI.js
+ ┃ ┣ customAxios.js
+ ┃ ┗ todoAPI.js
+ ┣ components
+ ┃ ┣ auth
+ ┃ ┃ ┣ AuthTemplate.js
+ ┃ ┃ ┣ LoginForm.js
+ ┃ ┃ ┗ RegisterForm.js
+ ┃ ┣ common
+ ┃ ┃ ┣ Button.js
+ ┃ ┃ ┗ Input.js
+ ┃ ┗ todo
+ ┃ ┃ ┣ TodoInsert.js
+ ┃ ┃ ┣ TodoItem.js
+ ┃ ┃ ┣ TodoList.js
+ ┃ ┃ ┗ TodoTemplate.js
+ ┣ hoc
+ ┃ ┣ useAuthHook.js
+ ┃ ┗ useTodoHook.js
+ ┣ pages
+ ┃ ┣ LoginPage.js
+ ┃ ┣ RegisterPage.js
+ ┃ ┗ TodoPage.js
+ ┣ App.css
+ ┣ App.js
+ ┣ App.test.js
+ ┣ Routes.js
+ ┣ index.css
+ ┣ index.js
+ ┣ logo.svg
+ ┣ reportWebVitals.js
+ ┗ setupTests.js
+```
 
-### Deployment
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### API 통신 관련
 
-### `npm run build` fails to minify
+- axios를 사용해서 RESTapi 통신을 관리했어요
+- interceptor를 걸어 JWT 토큰이 header에 포함되는 부분을 통합했어요
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br>
+
+#### 시연 영상
+
+<br>
+
+#### 회원가입/로그인
+
+![회원가입:로그인](https://user-images.githubusercontent.com/69576360/187741309-f346099d-80c9-48eb-ad61-824d1298c295.gif)
+
+#### 리스트 생성
+
+![리스트 생성](https://user-images.githubusercontent.com/69576360/187741383-7fd38c53-c6d4-4d33-9c0f-e3cbd545e6fa.gif)
+
+#### 리스트 수정
+
+![리스트 수정](https://user-images.githubusercontent.com/69576360/187741396-3d6bd5c5-83c2-42c4-89fc-4a69f21e4a03.gif)
+
+#### 리스트 삭제
+
+![리스트 삭제](https://user-images.githubusercontent.com/69576360/187741403-67a2e4d9-18ca-4294-866d-77a0b23773cd.gif)
