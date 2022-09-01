@@ -42,11 +42,7 @@ export const LoginForm = () => {
   return (
     <>
       <Title>로그인</Title>
-      <Input
-        placeholder="이메일"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
+      <Input placeholder="이메일" value={email} onChange={e => setEmail(e.target.value)} />
       <Divider />
       <Input
         placeholder="비밀번호"

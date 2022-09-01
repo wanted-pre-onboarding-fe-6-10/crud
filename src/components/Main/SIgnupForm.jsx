@@ -42,11 +42,7 @@ export const SignupForm = () => {
   return (
     <>
       <Title>회원가입</Title>
-      <Input
-        placeholder="이메일"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
+      <Input placeholder="이메일" value={email} onChange={e => setEmail(e.target.value)} />
       <Divider />
       <Input
         placeholder="비밀번호"
@@ -59,10 +55,7 @@ export const SignupForm = () => {
         <TextButton onClick={() => navigate('/login', { replace: true })}>
           이미 계정이 있다면? 로그인하기
         </TextButton>
-        <Button
-          onClick={() => join(email, password)}
-          disabled={!validEmail || !validPassword}
-        >
+        <Button onClick={() => join(email, password)} disabled={!validEmail || !validPassword}>
           회원가입
         </Button>
       </Row>
