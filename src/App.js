@@ -4,12 +4,10 @@ import { createGlobalStyle } from 'styled-components';
 import Routes from './Routes';
 
 function App() {
-  return (
-    <>
-      <GlobalStyle />
-      <Routes />
-    </>
-  );
+  <>
+    <GlobalStyle />
+    <Routes />
+  </>;
 }
 
 export default App;
