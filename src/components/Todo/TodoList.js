@@ -1,8 +1,8 @@
 import Todo from './Todo';
 
-export default function TodoList(props) {
-  const List = props.todos.map(res => {
-    return <Todo key={res.id} todo={res} Getdata={props.Getdata} />;
+export default function TodoList({ todos, Getdata }) {
+  const List = todos.map(res => {
+    return <Todo key={res.id} todo={res} Getdata={Getdata} />;
   });
-  return <>{List}</>;
+  return List;
 }

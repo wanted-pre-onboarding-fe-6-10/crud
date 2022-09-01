@@ -8,6 +8,8 @@ const ButtonColorHander = ButtonType => {
       return '#QE2E2W';
     case '취소':
       return '#EAE3D2';
+    default:
+      return 'blue';
   }
 };
 

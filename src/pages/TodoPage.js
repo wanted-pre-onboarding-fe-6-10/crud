@@ -9,7 +9,6 @@ export default function Todo() {
   const nav = useNavigate();
   const [todos, setTodos] = useState();
   const inputRef = useRef(null);
-  const todoApi = new todoAPI();
 
   const ClickHandler = async () => {
     const todo = inputRef.current?.value.toString();

@@ -26,23 +26,23 @@ const updateIuputHandler = async (id, todo, isCompleted, SetUpdateClick, Getdata
   Getdata();
 };
 
-export default function Todo(props) {
+export default function Todo({ todo, Getdata }) {
   // props에 무엇이 들어올지 본인밖에 모름. 3자가 코드리뷰할때 시간이 더 많이 들어감
-  const [isCheck, setIsCheck] = useState(props.todo.isCompleted);
+  const [isCheck, setIsCheck] = useState(todo.isCompleted);
   const [updateClick, SetUpdateClick] = useState(true); // 수정버튼 클릭시 변경
   const updateInput = useRef(null); // 수정버튼 클릭시 나오는 Input Ref
   return (
-    <TodoContainer key={`${props.todo.id}-${props.todo.userId}`}>
+    <TodoContainer key={`${todo.id}-${todo.userId}`}>
       <input
         type="checkbox"
         onClick={e => {
-          checkboxHandler(props.todo.id, props.todo.todo, !isCheck, setIsCheck);
+          checkboxHandler(todo.id, todo.todo, !isCheck, setIsCheck);
         }}
         defaultChecked={isCheck}
       />
       {updateClick ? ( // 수정버튼 클릭시 표현값
         <>
-          <TodoSpan isCheck={isCheck}>{props.todo.todo}</TodoSpan>
+          <TodoSpan isCheck={isCheck}>{todo.todo}</TodoSpan>
           <div>
             <TodoButton
               ButtonType="수정"
@@ -52,17 +52,14 @@ export default function Todo(props) {
             >
               수정
             </TodoButton>
-            <TodoButton
-              ButtonType="삭제"
-              onClick={e => deleteHandler(props.todo.id, props.Getdata)}
-            >
+            <TodoButton ButtonType="삭제" onClick={e => deleteHandler(todo.id, Getdata)}>
               삭제
             </TodoButton>
           </div>
         </>
       ) : (
         <>
-          <TodoInput defaultValue={props.todo.todo} ref={updateInput} />
+          <TodoInput defaultValue={todo.todo} ref={updateInput} />
           <div>
             <TodoButton
               ButtonType="수정"
@@ -71,11 +68,11 @@ export default function Todo(props) {
                   SetUpdateClick(prev => !prev);
                 } else {
                   updateIuputHandler(
-                    props.todo.id,
+                    todo.id,
                     updateInput.current.value,
                     false,
                     SetUpdateClick,
-                    props.Getdata
+                    Getdata
                   );
                 }
               }}
