@@ -1,4 +1,4 @@
-import { instance } from './customAxios';
+import instance from './Axios';
 
 const COMMON_URL = process.env.REACT_APP_API_URL + 'todos';
 
@@ -20,7 +20,7 @@ export const getTodos = async () => {
     throw e;
   }
 };
-export const updateTodo = async (todo, isCompleted, id) => {
+export const updateTodo = async (id, todo, isCompleted) => {
   try {
     const response = await instance.put(COMMON_URL + `/${id}`, {
       todo,

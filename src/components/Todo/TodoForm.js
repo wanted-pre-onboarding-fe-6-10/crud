@@ -9,7 +9,7 @@ const ButtonColorHander = ButtonType => {
     case '취소':
       return '#EAE3D2';
     default:
-      return 'blue';
+      return '';
   }
 };
 

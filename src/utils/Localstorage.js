@@ -11,7 +11,3 @@ export const GetTokenInStorage = () => {
   }
   return false;
 };
-
-// export const isLogin = () => {
-//   return !!localStorage.getItem(LocalStorageKey);
-// };

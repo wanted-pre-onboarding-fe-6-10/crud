@@ -1,4 +1,4 @@
-import { deleteTodo, updateTodo } from '../../api/userApi';
+import { deleteTodo, updateTodo } from '../../api/todoApi';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { TodoInput, TodoButton, TodoContainer, TodoSpan } from './TodoForm';

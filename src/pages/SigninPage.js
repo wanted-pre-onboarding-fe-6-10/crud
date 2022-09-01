@@ -1,8 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import * as LoginForm from '../components/Login/LoginForm';
 import { useNavigate } from 'react-router-dom';
 import * as vaildation from '../utils/Validation';
 import { UserSignUp } from '../api/userApi';
+import { GetTokenInStorage } from '../utils/Localstorage';
 
 function Signin() {
   const nav = useNavigate();
@@ -38,12 +39,10 @@ function Signin() {
     }
   };
   const handleClick = async e => {
-    const data = {
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
-    };
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
     try {
-      const res = await UserSignUp(data);
+      const res = await UserSignUp(email, password);
       if (res) {
         nav('/');
       }
@@ -55,6 +54,12 @@ function Signin() {
   const toLogin = e => {
     nav('/');
   };
+
+  useEffect(() => {
+    if (GetTokenInStorage()) {
+      nav('/todo');
+    }
+  }, []);
 
   return (
     <LoginForm.Container>

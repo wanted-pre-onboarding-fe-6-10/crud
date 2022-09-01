@@ -6,15 +6,13 @@ import TodoList from '../components/Todo/TodoList';
 import { Container, Input, Title, Button } from '../components/Todo/TodoForm';
 
 export default function Todo() {
-  const nav = useNavigate();
   const [todos, setTodos] = useState();
   const inputRef = useRef(null);
 
   const ClickHandler = async () => {
     const todo = inputRef.current?.value.toString();
     if (todo) {
-      const newTodo = { todo: todo };
-      const res = await createTodo(newTodo);
+      const res = await createTodo(todo);
       inputRef.current.value = '';
       if (res) {
         Getdata();
@@ -24,16 +22,12 @@ export default function Todo() {
 
   async function Getdata() {
     const data = await getTodos();
-    setTodos(() => data);
+    setTodos(() => data.data);
   }
 
-  useEffect(() => {
-    if (!GetTokenInStorage()) {
-      nav('/');
-    } else {
-      Getdata();
-    }
-  }, [nav]);
+  // useEffect(() => {
+  //   Getdata();
+  // }, []);
 
   return (
     <div>

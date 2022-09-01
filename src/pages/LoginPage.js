@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import * as LoginForm from '../components/Login/LoginForm';
 import { useNavigate } from 'react-router-dom';
 import * as vaildation from '../utils/Validation';
@@ -39,15 +39,15 @@ function Login() {
     }
   };
   const handleClick = async e => {
-    const data = {
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
-    };
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
     try {
-      const res = await UserSignIn(data);
-      const token = res.access_token;
+      const res = await UserSignIn(email, password);
+
+      const token = res.data.access_token;
       SetTokenInStorage(token);
-      ToTodoPage();
+      window.location.reload();
     } catch (e) {
       alert(e.response.data.message);
     }
@@ -57,15 +57,17 @@ function Login() {
     nav('/signin');
   };
 
-  const ToTodoPage = useCallback(() => {
+  // const ToTodoPage = useCallback(() => {
+  //   if (GetTokenInStorage()) {
+  //     nav('/todo');
+  //   }
+  // }, [nav]);
+
+  useEffect(() => {
     if (GetTokenInStorage()) {
       nav('/todo');
     }
   }, [nav]);
-
-  useEffect(() => {
-    ToTodoPage();
-  }, [ToTodoPage]);
   return (
     <LoginForm.Container>
       <LoginForm.Title>로그인</LoginForm.Title>

@@ -4,11 +4,11 @@ import Signin from './pages/SigninPage';
 import Todo from './pages/TodoPage';
 
 function Routes() {
-  const isToken = localStorage.getItem('accessToken');
+  const isToken = localStorage.getItem('Token');
   return (
     <ReactRoutes>
-      <Route path="/" element={!isToken ? <Login /> : <Navigate replace to="/todo" />} />
-      <Route path="/signin" element={!isToken ? <Signin /> : <Navigate replace to="/todo" />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/signin" element={<Signin />} />
       <Route path="/todo" element={isToken ? <Todo /> : <Navigate replace to="/" />} />
     </ReactRoutes>
   );

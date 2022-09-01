@@ -1,7 +1,7 @@
 import { default as axios } from 'axios';
 
-export const instance = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+const instance = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     'Content-type': 'application/json',
     'Access-Control-Allow-Credentials': true,
@@ -10,7 +10,7 @@ export const instance = axios.create({
 
 instance.interceptors.request.use(
   config => {
-    const accessToken = localStorage.getItem('token');
+    const accessToken = localStorage.getItem('Token');
     if (accessToken) {
       config.headers.Authorization = 'Bearer ' + accessToken;
     }
@@ -25,3 +25,5 @@ instance.interceptors.response.use(
   response => response,
   err => Promise.resolve(err.response)
 );
+
+export default instance;
