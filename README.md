@@ -40,6 +40,80 @@
 
 <br>
 
+
+## 팀의 코드 컨벤션
+
+### Git commit 메세지 컨벤션
+
+```json
+type: 작업 내용
+```
+
+![image](https://user-images.githubusercontent.com/96093461/187818854-829f7efd-082e-4edb-abeb-c1b9f9b4ae49.png)
+
+### Git Pull request
+
+![image](https://user-images.githubusercontent.com/96093461/187818882-2719fc0b-955a-4ddc-ba7b-767aa57287fb.png)
+
+- main 브랜치에서 각자의 이름으로 브랜치를 생성
+- 팀원들은 작업 완료 후 main 브랜치로 PR 날림
+- 팀원들은 각 PR에 대한 커멘트를 달아 best practice를 논의 후 선정
+- Best practice로 선정 된 PR을 main 브랜치로 merge
+
+### 변수명
+
+```jsx
+타입별 변수명 
+boolean : is-, has-, can-, ...
+function : get-, handle-, submit-, …
+array : -s (ex. users.map(user ⇒ user.id)), …
+피해야 할 변수명
+data, info, foo, user1, mdhms, …
+
+```
+
+- 맥락을 이해하기 힘든 변수명은 피하기
+  - 구현 방식 대신 무엇인지를 나타내는 변수명 `(How vs What)` 을 선택하여 개발자의 의도를 들어내기
+  - 이름을 지을 땐 세부 구현사항을 손으로 가린 채 변수명만 보고 `(이게뭐지?)`라고 반문해보면 도움이 됩니다.
+
+### Lint, code formatter
+
+`.eslintrc`
+
+```json
+{
+  "extends": ["react-app", "plugin:prettier/recommended"],
+  "rules": {
+    "no-var": "warn", // var 금지
+    "no-multiple-empty-lines": "warn", // 여러 줄 공백 금지
+    "no-console": ["warn", { "allow": ["warn", "error"] }], // console.log() 금지
+    "eqeqeq": "warn", // 일치 연산자 사용 필수
+    "dot-notation": "warn", // 가능하다면 dot notation 사용
+    "no-unused-vars": "warn", // 사용하지 않는 변수 금지
+    "react/destructuring-assignment": "warn", // state, prop 등에 구조분해 할당 적용
+    "react/jsx-pascal-case": "warn", // 컴포넌트 이름은 PascalCase로
+    "react/no-direct-mutation-state": "warn", // state 직접 수정 금지
+    "react/jsx-no-useless-fragment": "warn", // 불필요한 fragment 금지
+    "react/no-unused-state": "warn", // 사용되지 않는 state
+    "react/jsx-key": "warn", // 반복문으로 생성하는 요소에 key 강제
+    "react/self-closing-comp": "warn", // 셀프 클로징 태그 가능하면 적용
+    "react/jsx-curly-brace-presence": "warn" // jsx 내 불필요한 중괄호 금지
+  }
+}
+```
+
+`.prettierrc`
+
+```jsx
+{
+  "printWidth": 100,
+  "tabWidth": 2,
+  "arrowParens": "avoid",
+  "singleQuote": true,
+  "endOfLine": "auto"
+}
+```
+
 ## ✍️ 작업 log
 
 > UI 보다는 내부적인 코드 구현 리팩토링에 집중해 보았습니다!
