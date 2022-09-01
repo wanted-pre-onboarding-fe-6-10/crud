@@ -6,7 +6,7 @@
 
 3. 폴더 구조 변경 (api , components, pages, utils) 및 파일 정리
 
-4. 윤관님 Router 참고하여 useEffect 가 아닌 routing에서 token 값 참고하여 변경 하고싶었으나 아직 구현 X..
+4. 윤관님 Router 참고하여 routing에서 token 판결
 
 5. 맥락을 이해하기 힘든 변수명 변경
 
@@ -16,6 +16,12 @@
   - array : `-s` (ex. `users.map(user ⇒ user.id)`), …
 - 피해야 할 변수명
   - `data`, `info`, `foo`, `user1`, `mdhms`, …
+
+6. eslint , prettier 설치
+
+7. style reset 적용
+
+8. 이재님 api 파일 참고하여 axios middleware 역활 추가
 
 # 필요하다 생각되는 Best Practice (개인적인 의견입니다.)
 
