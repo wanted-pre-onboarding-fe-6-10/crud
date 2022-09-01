@@ -1,134 +1,143 @@
-# wanted-pre-onboarding-fe
+# Wanted Pre-Onboarding 6차 10팀 과제1: 사전과제 Best Practice
 
-프리온보딩 프론트엔드 코스 선별과제 입니다.
+> ### 구현 명세
+
+> <https://github.com/walking-sunset/selection-task>
 
 <br>
 
-> ## 폴더구조
+## 10팀의 프로젝트 리팩토링 방향
 
- <br>
+> 각자 best 방법으로 코드 구현한 뒤, 본인의 코드 설명 후 Best Practice를 채택하기로 했습니다
 
-```javascript
+>
+
+- 각자 orginization 에서 브랜치 판 뒤 Fork
+- Eslint, Prettier, Husky 적용
+- JavaScript 사용
+- styled-component로 스타일링
+- 리액트 폴더 구조에 대한 설명 준비
+- reset CSS (선택사항)
+- 모듈화 (OT 내용 참고)
+- 상태관리 라이브러리 → 명세에 나와있는 라이브러리 이외에는 사용하지 말 것
+
+<br>
+
+## 논의되었던 내용
+
+1. react router dom, styled-components 설치
+2. .env로 환경변수 관리
+3. styled-reset 사용 관련
+4. axios VS fetch 선택
+5. chmod ug+x .husky/\* 이슈 → 스크립트에 포함?
+   <br>[참고링크](https://stackoverflow.com/questions/68367259/husky-needs-to-make-executable-for-every-new-branch)
+
+6. .eslintcache .gitignore 파일에 추가
+7. eslint-config-prettier, eslint-plugin-prettier 디펜던시 사용 관련
+8. 폴더 구조 통일 할지?
+9. "endOfLine": "auto" .prettierrc 에 추가
+10. 필요없는 라이브러리들 제거
+
+<br>
+
+## ✍️ 작업 log
+
+> UI 보다는 내부적인 코드 구현 리팩토링에 집중해 보았습니다!
+
+#### 스타일링 관련
+
+- styled-reset 을 이용해서 CSS reset을 진행했어요
+- GlobalStyle 컴포넌트를 두어 global한 스타일을 정의해두었어요
+- styled-component로 스타일링을 하고 있어요
+
+<br>
+
+#### Dependency 관련
+
+- eslint-config-prettier, eslint-plugin-prettier를 함께 사용하는 것으로 변경했어요
+
+###### &nbsp; &nbsp; &nbsp; &nbsp;(참고링크: <https://stackoverflow.com/questions/44690308/whats-the-difference-between-prettier-eslint-eslint-plugin-prettier-and-eslint/44690309#44690309>)
+
+- 필요없는 라이브러리들을 제거했어요
+- .eslintrc, .prettierrc를 정의해서 코드를 관리했어요
+
+<br>
+
+#### 프로젝트 파일 구조 관련
+
+&nbsp; 컴포넌트 관련
+
+> 📁 pages: 앱의 각 화면<br>
+> 📁 components: 각 화면의 상위 컴포넌트들<br>
+> 📁 commons: 화면들 간에 재사용될 가능성이 있는 하위 컴포넌트들<br>
+> 📁 hoc: 각 컴포넌트에서 사용되야 할 state, api 호출 함수를 모아둔 커스텀 훅<br>
+
+&nbsp; 기타 관련
+
+> 📁 api: API axios instance와 api 호출 메서드 정의<br>
+
+```
 src
-┣ api                //api
-┃ ┣ authAPI.js
-┃ ┣ customAxios.js
-┃ ┗ todoAPI.js
-┣ components         //컴포넌트 UI
-┃ ┣ auth                  // 로그인,회원가입 UI 폴
-┃ ┃ ┣ AuthTemplate.js
-┃ ┃ ┣ LoginForm.js
-┃ ┃ ┗ RegisterForm.js
-┃ ┣ common                // 다른 컴포넌트에서 공통적으로 사용되는 UI
-┃ ┃ ┣ Button.js
-┃ ┃ ┗ Input.js
-┃ ┗ todo                  // 투두리스트 UI
-┃ ┃ ┣ TodoInsert.js
-┃ ┃ ┣ TodoItem.js
-┃ ┃ ┣ TodoList.js
-┃ ┃ ┗ TodoTemplate.js
-┣ hoc                     //컴포넌트에서 사용되는 state, api호출, 함수의 커스텀 훅
-┃ ┣ useAuthHook.js
-┃ ┗ useTodoHook.js
-┣ pages
-┃ ┣ LoginPage.js
-┃ ┣ RegisterPage.js
-┃ ┗ TodoPage.js
-┣ App.css
-┣ App.js
-┣ App.test.js
-┣ Routes.js               //Routing 관련 폴더
-┣ index.css
-┣ index.js
-┣ logo.svg
-┣ reportWebVitals.js
+ ┣ api
+ ┃ ┣ authAPI.js
+ ┃ ┣ customAxios.js
+ ┃ ┗ todoAPI.js
+ ┣ components
+ ┃ ┣ auth
+ ┃ ┃ ┣ AuthTemplate.js
+ ┃ ┃ ┣ LoginForm.js
+ ┃ ┃ ┗ RegisterForm.js
+ ┃ ┣ common
+ ┃ ┃ ┣ Button.js
+ ┃ ┃ ┗ Input.js
+ ┃ ┗ todo
+ ┃ ┃ ┣ TodoInsert.js
+ ┃ ┃ ┣ TodoItem.js
+ ┃ ┃ ┣ TodoList.js
+ ┃ ┃ ┗ TodoTemplate.js
+ ┣ hoc
+ ┃ ┣ useAuthHook.js
+ ┃ ┗ useTodoHook.js
+ ┣ pages
+ ┃ ┣ LoginPage.js
+ ┃ ┣ RegisterPage.js
+ ┃ ┗ TodoPage.js
+ ┣ App.css
+ ┣ App.js
+ ┣ App.test.js
+ ┣ Routes.js
+ ┣ index.css
+ ┣ index.js
+ ┣ logo.svg
+ ┣ reportWebVitals.js
+ ┗ setupTests.js
 ```
 
-> ## api
+<br>
 
-- todo관련 api에는 access_token이 무조건 필요하므로 interceptor를 활용해서 토큰이 로컬 스토리지에 있는 경우 api 요청 전에 headers에 포함되도록 코드 작성 (customAxios.js)
+#### API 통신 관련
+
+- axios를 사용해서 RESTapi 통신을 관리했어요
+- interceptor를 걸어 JWT 토큰이 header에 포함되는 부분을 통합했어요
 
 <br>
 
-> ## components
-
-- 각 컴포넌트들의 UI만 보여질 수 있도록 UI에 관련된 코드만 작성
-- 각 컴포넌트에서 필요한 state, api 호출 함수 등은 커스텀 훅에서 return 받아 사용
-- 다른 코드와 섞이지 않고 딱 UI만 확인 할 수 있는 점에서 좋은것 같음..?, 유지보수성/ 리팩토링의 용이성..?
+#### 시연 영상
 
 <br>
 
-> ## components/common
-
-- Button,Input 같은 경우 로그인/회원가입/투두리스트 생성,수정,삭제 등에서 지속적으로 사용
-- 기본적인 스타일만 정해 놓고 각 컴포넌트의 스타일에 따라서 props를 통해 스타일 변경
-
-<br>
-
-> ## hoc
-
-- 각 컴포넌트들에서 사용되야 할 state, api 호출 함수를 모아논 커스텀 훅
-- 로그인/회원가입 api, input에서의 onChange, value등이 있는 커스텀 훅(useAuthHook.js)
-- 투두리스트의 CRUD api, 수정 input에서의 onChange,value 등이 있는 커스텀 훅(useTodoHook.js)
-- 커스텀 훅으로 따로 분리함으로써 컴포넌트의 행동에 관련한 코드 수정 시 유지보수, 리팩토링 할 때 좋을 듯 하다..?
-
-<br>
-
-> ## pages
-
-- pages 폴더 안에는 각 페이지에 들어갈 컴포넌트만 export해서 사용
-- pages에 어떤 컴포넌트가 있는지 한눈에 확인이 가능 할 꺼 같아서
-
-<br>
-
-> ## Routes.js
-
-- 라우팅 관련 코드 모음 (윤관님 코드 참고)
-- App.js에서 관리하는 것보다 Routes.js 파일로 관리 후 App.js에서 import 후 사용하는게 깔끔한 것 같다.
-
-<br>
-
-> ## Styled-Components
-
-- 한 파일 안에서 작성
-- 파일이 쪼개져 있으면 나중에 구조 변경 이나 또 다른 리팩토링을 할 때 파일을 찾아가야 하는 귀찮음..? 불편함..?
-- 팀 코드 컨벤션에 따라 다른것 같음
-
-<br>
-
----
-
-<br>
-
-> ## 회원가입 / 로그인
-
-- 회원가입 / 로그인 후 localStorage에 토큰 저장
-- 토큰 확인 후 /todo로 리다이렉트
-  <br>
+#### 회원가입/로그인
 
 ![회원가입:로그인](https://user-images.githubusercontent.com/69576360/187741309-f346099d-80c9-48eb-ad61-824d1298c295.gif)
 
-  <br>
-
-> ## 투두 리스트 생성
-
-   <br>
+#### 리스트 생성
 
 ![리스트 생성](https://user-images.githubusercontent.com/69576360/187741383-7fd38c53-c6d4-4d33-9c0f-e3cbd545e6fa.gif)
 
-  <br>
-
-> ## 투두 리스트 수정
-
-  <br>
+#### 리스트 수정
 
 ![리스트 수정](https://user-images.githubusercontent.com/69576360/187741396-3d6bd5c5-83c2-42c4-89fc-4a69f21e4a03.gif)
 
-  <br>
-
-> ## 투두 리스트 삭제
-
-- 토큰 확인 후 없으면 root 페이지로 리다이렉트
-  <br>
+#### 리스트 삭제
 
 ![리스트 삭제](https://user-images.githubusercontent.com/69576360/187741403-67a2e4d9-18ca-4294-866d-77a0b23773cd.gif)
