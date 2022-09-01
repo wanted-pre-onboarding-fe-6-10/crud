@@ -1,10 +1,10 @@
 import Routes from './Routes';
-import { ResetStyle } from './styles/ResetStyle';
+import GlobalStyle from './styles/ResetStyle';
 
 function App() {
   return (
     <>
-      <ResetStyle />
+      <GlobalStyle />
       <Routes />
     </>
   );
