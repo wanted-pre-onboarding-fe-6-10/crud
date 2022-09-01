@@ -1,6 +1,6 @@
 import * as S from './TodoStyles';
 import { useState, useEffect } from 'react';
-import TodoItem from './todoitem/TodoItem';
+import TodoItem from './components/TodoItem';
 import { getTodos, createTodo } from '../../api/todoAPI';
 
 const Todo = () => {
@@ -31,11 +31,7 @@ const Todo = () => {
       <h1>Todo List</h1>
       <S.TodoWrapper>
         <S.TodoTop>
-          <input
-            type="text"
-            value={todoText}
-            onChange={e => setTodoText(e.target.value)}
-          />
+          <input type="text" value={todoText} onChange={e => setTodoText(e.target.value)} />
           <button type="button" onClick={todoPost}>
             add
           </button>

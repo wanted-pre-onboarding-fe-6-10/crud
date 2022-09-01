@@ -5,8 +5,7 @@ import * as S from './AuthFormStyle';
 const AuthForm = ({ title, submitRequest, btnText = 'in' }) => {
   const [userValue, setUserValue] = useState({ email: '', password: '' });
 
-  const isValid =
-    userValue.email.includes('@') && userValue.password.length >= 8;
+  const isValid = userValue.email.includes('@') && userValue.password.length >= 8;
 
   const onSubmit = e => {
     e.preventDefault();
@@ -25,9 +24,7 @@ const AuthForm = ({ title, submitRequest, btnText = 'in' }) => {
               placeholder="@포함"
               value={userValue.eamil}
               required
-              onChange={e =>
-                setUserValue(prev => ({ ...prev, email: e.target.value }))
-              }
+              onChange={e => setUserValue(prev => ({ ...prev, email: e.target.value }))}
             />
           </S.Label>
 
@@ -39,9 +36,7 @@ const AuthForm = ({ title, submitRequest, btnText = 'in' }) => {
               required
               minLength={8}
               value={userValue.eamil}
-              onChange={e =>
-                setUserValue(prev => ({ ...prev, password: e.target.value }))
-              }
+              onChange={e => setUserValue(prev => ({ ...prev, password: e.target.value }))}
             />
           </S.Label>
         </S.LabelWrapper>

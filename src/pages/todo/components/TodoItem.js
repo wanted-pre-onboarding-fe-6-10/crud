@@ -61,10 +61,7 @@ const TodoItem = ({ id, isCompleted, todoContent, setTodoData }) => {
       {/* 수정모드 */}
       {isEditMode && (
         <>
-          <S.TodoEdit
-            value={editText}
-            onChange={e => setEditText(e.target.value)}
-          />
+          <S.TodoEdit value={editText} onChange={e => setEditText(e.target.value)} />
           <S.TodoControlBtns>
             <button
               type="button"

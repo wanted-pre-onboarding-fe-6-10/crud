@@ -11,9 +11,7 @@ const Signup = () => {
     }
   };
 
-  return (
-    <AuthForm title="회원가입" submitRequest={SignupRequest} btnText="up" />
-  );
+  return <AuthForm title="회원가입" submitRequest={SignupRequest} btnText="up" />;
 };
 
 export default Signup;
